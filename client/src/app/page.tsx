@@ -10,7 +10,6 @@ import ThemeToggle from "./_components/theme-toggle";
 import {
   Sidebar,
   SidebarContent,
-  SidebarHeader,
   SidebarInset,
   SidebarMenu,
   SidebarMenuButton,
@@ -79,7 +78,7 @@ const chats = [
 
 export default function Home() {
   const [selectedChat, setSelectedChat] = useState<number | null>(null);
-  const [messages, setMessages] = useState<string[]>([]);
+  const [_, setMessages] = useState<string[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [connected, setConnected] = useState(false);
   const wsRef = useRef<WebSocket | null>(null);
