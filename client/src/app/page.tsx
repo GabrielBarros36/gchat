@@ -78,7 +78,7 @@ const chats = [
 
 export default function Home() {
   const [selectedChat, setSelectedChat] = useState<number | null>(null);
-  const [_, setMessages] = useState<string[]>([]);
+  const [messages, setMessages] = useState<string[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [connected, setConnected] = useState(false);
   const wsRef = useRef<WebSocket | null>(null);
@@ -93,6 +93,7 @@ export default function Home() {
     };
 
     ws.onmessage = (event) => {
+      console.log(messages);
       setMessages((prev) => [...prev, event.data]);
     };
 
